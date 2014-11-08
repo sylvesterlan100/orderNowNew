@@ -1,0 +1,9 @@
+index.html.erb
+<%=link_to "new", new_suborder_path%><br>
+
+
+<% @suborders.each do |suborder| %>
+	<%= suborder.item   %>
+	<%= suborder.amount   %>
+	<%= suborder.price %><br>
+<% end %>

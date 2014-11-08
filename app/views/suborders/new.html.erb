@@ -1,0 +1,19 @@
+<%= form_for @suborder do |f| %>
+
+<div class="form-group">
+    <%= f.label :item %>
+    <%= f.text_field :item, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :amount %>
+    <%= f.number_field :amount, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.number_field :price, step: 0.01, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

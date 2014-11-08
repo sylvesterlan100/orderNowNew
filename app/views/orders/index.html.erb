@@ -1,0 +1,43 @@
+
+
+<%= form_for @order do |f| %>
+
+	<div class="form-group">
+    	<%= f.submit class: "btn btn-primary" %>
+  	</div>
+<% end %>
+
+
+<% @orders.each do |order|%>
+
+	<p>
+	<%=link_to (order) do%> 
+		Order created at <%=order.created_at%>
+	<%end%>
+	<table border="1px">
+	<tr>
+	<td>Item</td>
+	<td>Amount</td>
+	<td>Unit Price</td>
+	<td>Total Price</td>
+	</tr>
+	<%@total=0%>
+	<%order.suborders.each do |sub|%>
+		<tr>
+		<td><%= sub.item %></td>
+		<td><%= sub.amount %></td>
+		<td><%= sub.price %></td>
+		<td><%= sub.price*sub.amount %></td>
+		<%@total+=sub.price*sub.amount%>
+		</tr>
+	<%end%>
+		<tr><td></td>
+			<td></td>
+			<td>Total</td>
+			<td><%=@total%></td>
+		</tr>
+</table>
+	<%= link_to 'Destroy', order, method: :delete%>
+	</p>
+	<br>
+<%end%>
