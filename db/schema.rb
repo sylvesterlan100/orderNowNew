@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105001841) do
+ActiveRecord::Schema.define(version: 20141111013051) do
 
   create_table "orders", force: true do |t|
     t.datetime "created_at"
@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 20141105001841) do
   create_table "suborders", force: true do |t|
     t.string   "item"
     t.integer  "amount"
-    t.float    "price"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "order_id"
+    t.decimal  "price",      precision: 5, scale: 2
   end
 
   add_index "suborders", ["order_id"], name: "index_suborders_on_order_id"

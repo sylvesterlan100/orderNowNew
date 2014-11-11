@@ -22,6 +22,10 @@ class SubordersController < ApplicationController
 	end
 
 	def destroy
+		@suborder = Suborder.find(params[:id])
+		@suborder.destroy
+		redirect_to suborders_path
+
 	end
 
 	def show

@@ -1,9 +1,14 @@
-index.html.erb
-<%=link_to "new", new_suborder_path%><br>
+
+
+<%=link_to "To Orders", orders_path%><br>
+<%=link_to "New Suborder", new_suborder_path%><br>
 
 
 <% @suborders.each do |suborder| %>
 	<%= suborder.item   %>
 	<%= suborder.amount   %>
-	<%= suborder.price %><br>
+	<%= suborder.price %>
+	<%= link_to 'Destroy', suborder, method: :delete%><br>
 <% end %>
+
+<br>
